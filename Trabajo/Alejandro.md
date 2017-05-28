@@ -1,17 +1,17 @@
 
-##Creamos un nuevo contenedor
+## Creamos un nuevo contenedor
 
 ~~~
 sudo docker run -d -p 80:80 -p 443:443 -p 10022:22 -i -t --name BalanceadorTrabajo nginx bash
 ~~~
 
-##accedemos a el
+## accedemos a el
 
 ~~~
 sudo docker attach BalanceadorTrabajo
 ~~~
 
-##modificamos archivo /etc/nginx/conf.d/default.conf
+## modificamos archivo /etc/nginx/conf.d/default.conf
 
 ~~~
 upstream apaches {
