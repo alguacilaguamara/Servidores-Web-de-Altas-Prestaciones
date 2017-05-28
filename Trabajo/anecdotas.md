@@ -33,7 +33,7 @@ intenta copiar la carpeta de vuelta a docker de nuevo instalado y:
 
 Se queda sin espacio en disco 
 
-![img](../imagenes/5.jpg)
+![img](./imagenes/5.jpg)
 
 intentos de copiar archivos desde terminal
 
