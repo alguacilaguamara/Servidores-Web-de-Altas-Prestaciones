@@ -11,25 +11,27 @@
 
 Nuestro trabajo consiste en recrear las prácticas de la asignatura en un servidor casero, con el objetivo de observar a ras de circuito la importancia y el funcionamiento de las herramientas que hemos utilizado en el curso.
 
-Para ello, hemos puesto a punto cuatro máquinas, las cuales tendrán como fin aunar potencia de cómputo y memoria para procesar las peticiones que lleguen al mismo. Una de estas máquinas será el balanceador de carga, el cual se encargará de repartir el grueso de las peticiones entre las máquinas preparadas para tal efecto. Todas ellas vendrán provistas de unos cuantos servidores web (apache) y una base de datos (MariaDB), utilizando como motor de virtualización los contenedores de Docker, intentando sacarle el máximo jugo a esta útil herramienta. Posteriormente entraremos en más detalles sobre la puesta a punto de los servidores y la configuración que hemos tenido que realizar sobre los mismos.
+Para ello, hemos puesto a punto cuatro máquinas, las cuales tendrán como fin aunar potencia de cómputo y memoria para procesar las peticiones que lleguen al mismo. Una de estas máquinas será el balanceador de carga, el cual se encargará de repartir el grueso de las peticiones entre las máquinas preparadas para tal efecto. Todas ellas vendrán provistas de unos cuantos servidores web (Apache) y una base de datos (MariaDB), utilizando como motor de virtualización los contenedores de Docker, intentando sacarle el máximo jugo a esta útil herramienta. Posteriormente entraremos en más detalles sobre la puesta a punto de los servidores y la configuración que hemos tenido que realizar sobre los mismos.
 
 Para ello vamos a utilizar Docker.
 
 # ¿Qué es Docker?
 
-Docker es una plataforma de software que le permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas llamadas
-contenedores llamadas contenedores llamadas
-contenedores que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que su código se ejecutará.
+Docker es una plataforma de software que le permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas llamadas contenedores que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, se puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que el código se ejecutará.
 
 
 ## Ventajas de Docker
 
-Mejore la productividad de desarrollo Docker reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes. Estandarice las operaciones de aplicaciones Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos.
+#### Mejora la productividad de desarrollo Docker 
+#### Reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes
+#### Estandariza las operaciones de aplicaciones 
+#### Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos
 
 
-##Empresas que lo Utilizan
+## Empresas que lo utilizan
 
 Organizaciones contribuidoras apuestan por Docker:
+
 * Red Hat
 * IBM 
 * Google por ejemplo con Google Container Engine y Kubernetes 
@@ -39,46 +41,45 @@ Organizaciones contribuidoras apuestan por Docker:
 * Paypal
 
 
-## ·Ideas
-## Configuraciones iniciales que desechamos
+## Ideas
+### Configuraciones iniciales que desechamos
 
-## Ideas iniciales: conexiones de dispositivos 
+### Ideas iniciales: conexiones de dispositivos 
 ### Idea principal
-La idea principal para dar el servicio del servidor fue conectar todos los ordenadores y configurar alguno de los routers secundarios que tuviesemos en desuso y configurarlo para que emitiese ua red wifi conectando todos nuestros portatiles por cable, razones por las que se descarto:
+La idea principal para dar el servicio del servidor fue conectar todos los ordenadores y configurar alguno de los routers secundarios que tuviésemos en desuso para que emitiese una red WiFi conectando todos nuestros portátiles por cable, razones por las que se descarto:
 
-* los routers que teniamos no permitian hacer la configuración o teniamos que modificar partes del hardware soldando algunas conexiones.
-* las conexiones de uno de los portatil necesitaba un adaptador de conexiones(usb-c) a red(Gigabit Ethernet) que costaba uns 33€, esto se solucionaba conectandolo por wifi
+* Los routers que teníamos no permitían hacer la configuración o teníamos que modificar partes del hardware soldando algunas conexiones.
+* Las conexiones de uno de los portátil necesitaba un adaptador de conexiones(usb-c) a red(Gigabit Ethernet) que costaba unos 33€, esto se solucionaba conectándolo por wifi
 
 ![img](./imagenes/con1.png)
 
 
 ### Segunda idea
-Descartando la anterior idea, escogimos optar por una mejora de la anterior la cual fue conectar todos los ordenadores al router y desde el ordenador balanceador de carga que era por el que tendrían que acceder al servicio y montar con una tarjeta wifi interna del portatil o externa(con esta opción se dispondría de acceso a internet) emitiendo una red wifi, los motivos por que la desechamos:
+Descartando la anterior idea, escogimos optar por una mejora de la anterior la cual fue conectar todos los ordenadores al router y desde el ordenador balanceador de carga que era por el que tendrían que acceder al servicio y montar con una tarjeta WiFi interna del portátil o externa (con esta opción se dispondría de acceso a internet) emitiendo una red WiFi, los motivos por que la desechamos:
 
-* La prueba que realizamos en clase funciono bien, excepto a una persona con un móvil pero el sistema en si funciono decentemente
-* se intento crear un servidor con DNS local para facilitar el acceso y no tener que dar una IP, pero no se obtubieron resultados
+* La prueba que realizamos en clase funcionó bien, excepto a una persona con un móvil pero el sistema en sí funciono decentemente
+* Se intentó crear un servidor con DNS local para facilitar el acceso y no tener que dar una IP, pero no se obtuvieron resultados
 
 ![img](./imagenes/con2.png)
 
 ### Últimas ideas
 Concluimos después de las ideas anteriores era mejor tener una direccion en vez de una IP y por eso discutimos entre las dos siguientes posiciones:
 
-* dejar todos los ordenadores en red en una de nuestra casas
-* dejar distribuidos los equipos en cada casa con cada uno de nuestro ISP(Internet Service Provider)
+* Dejar todos los ordenadores en red en una de nuestra casas
+* Dejar distribuidos los equipos en cada casa con cada uno de nuestro ISP(Internet Service Provider)
 
-de las que decidimos optar por la distribuirl
-os y configurarlos con No-ip para tener una dirección en vez de una IP
+Finalmente optamos por distribuirlos y configurarlos y configurarlos con No-ip para tener una dirección en vez de una IP
 
 ![img](./imagenes/con3.png)
 
 ## Ideas conexiones de contenedores 
-Aquí se muestran las ideas que teniamos en principio para organizar los contenedores y las conexiones entre ellos.
+Aquí se muestran las ideas que teníamos en principio para organizar los contenedores y las conexiones entre ellos.
 ### Idea Inicial de estructura 
-Nuestra idea principal era la de tener dos balanceadores uno para servidores apache y otro para las Bases de datos, pero desechamos la idea ya que no se conseguia configurar con HAProxy con varias configuraciones que se probarón
+Nuestra idea principal era la de tener dos balanceadores uno para servidores Apache y otro para las bases de datos, pero desechamos la idea ya que no se conseguía configurar con HAProxy con varias configuraciones que se probaron
 ![img](./imagenes/dockers1.png)
 
 ### Idea final de la estructura 
-La Idea final fue la de Tener un balanceador de servidores, Servidores Apache y dos Bases de datos y uno con un dispositivo RAID
+La idea final fue la de tener un balanceador de servidores, servidores Apache, dos bases de datos y uno con un dispositivo RAID
 ![img](./imagenes/dockersfinal.png)
 
 ##Creamos un nuevo contenedor
@@ -307,7 +308,7 @@ Creamos la clave
 keygen -t rsa
 ~~~
 
-La copiamos en la maquina principal de nuestros contenedores
+La copiamos en la máquina principal de nuestros contenedores
 ~~~
 ssh# ssh-copy-id -i ~/.ssh/id_rsa 172.17.0.2
 ~~~
@@ -321,17 +322,17 @@ ssh# ssh-copy-id -i ~/.ssh/id_rsa 172.17.0.2
 
 # 
 ## Descripción
-El objetivo de esta página web es gestionar la entrada y salida de usuarios registrados, guardar datos de aspectos tecnicos del servidor y del cliente, y ver porcentajes sobre los datos guardados
+El objetivo de esta página web es gestionar la entrada y salida de usuarios registrados, guardar datos de aspectos técnicos del servidor y del cliente, y ver porcentajes sobre los datos guardados
 
 ## Objetivos
-* El sistema almacenara datos
-* El sistema mostrara datos de una forma visual
-* El sistema permitira acceder mediante usuario y contraseña
-* El sistema permitira salir 
+* El sistema almacenará datos
+* El sistema mostrará datos de una forma visual
+* El sistema permitirá acceder mediante usuario y contraseña
+* El sistema permitirá salir 
 
 ## Descripción de los implicados
 ### Entorno de usuario
-Los	 usuarios directos de la aplicación a desarrollar es el usuario registrado que dispone de todas las opciones de la pagina web
+Los usuarios directos de la aplicación a desarrollar es el usuario registrado que dispone de todas las opciones de la pagina web
 
 ### Resumen de los implicados
 
@@ -343,18 +344,18 @@ Los	 usuarios directos de la aplicación a desarrollar es el usuario registrado 
 
 ### Requisitos Funcionales
 * **RF-1. Iniciar sesión** El sistema realizará una consulta 
-	* RF-1.1. El sistema sera capaz de responder al entrar
+	* RF-1.1. El sistema será capaz de responder al entrar
 * **RF-2. Guardar Datos** El sistema guardará los datos
 	* RF-2.1. El sistema será capaz de almacenar los datos
 * **RF-3. ver estadisticas** El sistema mostrará los datos
-	* RF-3.1. El sistema sera capaz de mostrar porcentajes de datos guardados
+	* RF-3.1. El sistema será capaz de mostrar porcentajes de datos guardados
 * **RF-4. Cerrar sesión** El sistema eliminará los datos 
-	* RF-4.1. El sistema borrara todos los datos utilizados en la sesión 
+	* RF-4.1. El sistema borrará todos los datos utilizados en la sesión 
 
 ### Requisitos No Funcionales
 * **RNF1** Es necesario de conocimientos iniciales de navegación por web
 * **RNF2** No es necesario documentación al usuario
-* **RNF3** Es necesario la utilización de un navegador de internet
+* **RNF3** Es necesario la utilización de un navegador de Internet
 * **RNF4** El sistema debe ser estable y escalable
 * **RNF5** El sistema debe soportar un número indefinido de usuarios
 simultáneamente
@@ -363,14 +364,14 @@ carga posibles.
 
 
 ### Requisitos de Información
-* ** RI1 Iniciar Sesion**
+* ** RI1 Iniciar Sesión**
 	* Imformación de usuario 
 	* **Contenido:** un usuario esta identificado por su usuario y la contraseña  
 	* **Requisitos asociados:** RF-1, RF-2,RF-3,RF-4
 
 * ** RI2 Datos**
 	* Información del servidor y del cliente
-	* **Contenido:** Información destinada para guardar direcciones IP, Sistemas operativos, Navegadores tamaños de pantalla y usuario
+	* **Contenido:** Información destinada para guardar direcciones IP, sistemas operativos, navegadores tamaños de pantalla y usuario
 	* **Requisitos asociados:**RF2,RF3
 
 
@@ -471,7 +472,7 @@ carga posibles.
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
     <td class="tg-yw4l">6</td>
-    <td class="tg-yw4l" colspan="3">El sistema muestra la pagina con todos los datos</td>
+    <td class="tg-yw4l" colspan="3">El sistema muestra la página con todos los datos</td>
   </tr>
 </table>
 
@@ -481,7 +482,7 @@ carga posibles.
   </tr>
   <tr>
     <td class="tg-yw4l">6b</td>
-    <td class="tg-yw4l" colspan="7">Si los datos son erroneos vuelve a la pagina de introducción de usuario y contraseña</td>
+    <td class="tg-yw4l" colspan="7">Si los datos son erróneos vuelve a la página de introducción de usuario y contraseña</td>
   </tr>
 </table>
 
@@ -499,7 +500,7 @@ carga posibles.
   </tr>
   <tr>
     <th class="tg-yw4l">Tipo</th>
-   <td class="tg-yw4l" colspan="2">Primário</td>
+   <td class="tg-yw4l" colspan="2">Primario</td>
    <td class="tg-yw4l" colspan="2">Esencial</td>
    <td class="tg-yw4l" colspan="2">Básico</td>
   </tr>
@@ -519,7 +520,7 @@ carga posibles.
 
 <table class="tg">
   <tr>
-    <th class="tg-yw4l" colspan="7">Próposito</th>
+    <th class="tg-yw4l" colspan="7">Propósito</th>
   </tr>
   <tr>
     <td class="tg-yw4l" colspan="7">Guardar datos para luego poder extraer porcentajes de utilización</td>
@@ -542,7 +543,7 @@ carga posibles.
   </tr>
   <tr>
     <td class="tg-yw4l">1</td>
-    <td class="tg-yw4l" colspan="3">Usuario inicia sesion en la pagina web y se encuentra en la pagina web con muchos datos </td>
+    <td class="tg-yw4l" colspan="3">Usuario inicia sesión en la página web y se encuentra en la página web con muchos datos </td>
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
   </tr>
@@ -567,7 +568,7 @@ carga posibles.
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
     <td class="tg-yw4l">5</td>
-    <td class="tg-yw4l" colspan="3">El sistema vuelve a la pagina donde se encuentran los datos</td>
+    <td class="tg-yw4l" colspan="3">El sistema vuelve a la página donde se encuentran los datos</td>
   </tr>
 </table>
 
@@ -577,7 +578,7 @@ carga posibles.
   </tr>
   <tr>
     <td class="tg-yw4l">5b</td>
-    <td class="tg-yw4l" colspan="7">Si los datos no se pueden guardar vuelve a la pagina de nuevo</td>
+    <td class="tg-yw4l" colspan="7">Si los datos no se pueden guardar vuelve a la página de nuevo</td>
   </tr>
 </table>
 #### ver estadisticas
@@ -585,7 +586,7 @@ carga posibles.
 <table class="tg">
   <tr>
     <th class="tg-9hbo">Casos de uso</th>
-    <th class="tg-yw4l" colspan="4">Ver estadisticas</th>
+    <th class="tg-yw4l" colspan="4">Ver estadísticas</th>
     <th class="tg-yw4l" colspan="2">CU-3</th>
   </tr>
   <tr>
@@ -594,7 +595,7 @@ carga posibles.
   </tr>
   <tr>
     <th class="tg-yw4l">Tipo</th>
-   <td class="tg-yw4l" colspan="2">Primário</td>
+   <td class="tg-yw4l" colspan="2">Primario</td>
    <td class="tg-yw4l" colspan="2">Esencial</td>
    <td class="tg-yw4l" colspan="2">Básico</td>
   </tr>
@@ -614,10 +615,10 @@ carga posibles.
 
 <table class="tg">
   <tr>
-    <th class="tg-yw4l" colspan="7">Próposito</th>
+    <th class="tg-yw4l" colspan="7">Propósito</th>
   </tr>
   <tr>
-    <td class="tg-yw4l" colspan="7">Visulizar porcentajes de aspectos tecnicos guardados</td>
+    <td class="tg-yw4l" colspan="7">Visualizar porcentajes de aspectos técnicos guardados</td>
   </tr>
 </table>
 
@@ -637,13 +638,13 @@ carga posibles.
   </tr>
   <tr>
     <td class="tg-yw4l">1</td>
-    <td class="tg-yw4l" colspan="3">Usuario inicia sesion en la pagina web principal y se encuentra en la pagina web con muchos datos </td>
+    <td class="tg-yw4l" colspan="3">Usuario inicia sesión en la pagina web principal y se encuentra en la pagina web con muchos datos </td>
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
   </tr>
   <tr>
     <td class="tg-yw4l">2</td>
-    <td class="tg-yw4l" colspan="3">Usuario pulsa ver estadsticas</td>
+    <td class="tg-yw4l" colspan="3">Usuario pulsa ver estadísticas</td>
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
   </tr>
@@ -680,7 +681,7 @@ carga posibles.
   </tr>
   <tr>
     <th class="tg-yw4l">Tipo</th>
-   <td class="tg-yw4l" colspan="2">Primário</td>
+   <td class="tg-yw4l" colspan="2">Primario</td>
    <td class="tg-yw4l" colspan="2">Esencial</td>
    <td class="tg-yw4l" colspan="2">Básico</td>
   </tr>
@@ -700,10 +701,10 @@ carga posibles.
 
 <table class="tg">
   <tr>
-    <th class="tg-yw4l" colspan="7">Próposito</th>
+    <th class="tg-yw4l" colspan="7">Propósito</th>
   </tr>
   <tr>
-    <td class="tg-yw4l" colspan="7">Cerrar Sesion en la plataforma</td>
+    <td class="tg-yw4l" colspan="7">Cerrar Sesión en la plataforma</td>
   </tr>
 </table>
 
@@ -713,7 +714,7 @@ carga posibles.
     <th class="tg-yw4l" colspan="7">Resumen</th>
   </tr>
   <tr>
-    <td class="tg-yw4l" colspan="7">El usuario cierra sesion de la plataforma</td>
+    <td class="tg-yw4l" colspan="7">El usuario cierra sesión de la plataforma</td>
   </tr>
 </table>
 
@@ -737,7 +738,7 @@ carga posibles.
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
     <td class="tg-yw4l">3</td>
-    <td class="tg-yw4l" colspan="3">El sistema vuelve a la pagina principal</td>
+    <td class="tg-yw4l" colspan="3">El sistema vuelve a la página principal</td>
   </tr>
 
 </table>
@@ -759,11 +760,11 @@ carga posibles.
   </tr>
   <tr>
     <th class="tg-yw4l">Descripción</th>
-    <td class="tg-yw4l" colspan="5">Persona que esta dada de alta con un usuario y contraseña en la plataforma</td>
+    <td class="tg-yw4l" colspan="5">Persona que está dada de alta con un usuario y contraseña en la plataforma</td>
   </tr>
   <tr>
     <th class="tg-yw4l">Características</th>
-    <td class="tg-yw4l" colspan="5">Este actor se utiliza para realizar todas las acciones en la plataforma: Iniciar sesión,guardar datos,ver estdisticas y cerrar sesión </td>
+    <td class="tg-yw4l" colspan="5">Este actor se utiliza para realizar todas las acciones en la plataforma: Iniciar sesión,guardar datos,ver estadísticas y cerrar sesión </td>
   </tr>
   <tr>
     <th class="tg-yw4l">Relaciones</th>
@@ -856,9 +857,7 @@ UUID=1ee1f774:c5d0c62d:dc01f0cf:98c776a8 /dat ext2 defaults 0 0
 
 
 ###La tabla usada
-⧸⧸⧸⧸~~~⧸⧸⧸⧸CREATE⧸⧸⧸⧸~~~⧸⧸
-CREATE⧸⧸⧸⧸CREATE⧸⧸~~~
-⧸⧸CREATE⧸⧸⧸⧸⧸⧸CREATE⧸⧸⧸⧸⧸⧸⧸⧸ TABLE `USER`(
+  CREATE TABLE `USER`(
   USUARIO mediumint(9) NOT NULL,
   PASS binary(16) NOT NULL
 );
@@ -895,49 +894,33 @@ CREATE TABLE DATOS(
   Pantalla varchar(10) NOT NULL,
   tiempo_acceso varchar(6) NOT NULL,
 );
-⧸⧸⧸⧸⧸⧸⧸⧸~~~⧸⧸⧸⧸⧸⧸⧸⧸
 
 
+# Anécdotas
 
-
-
-
-#·Anécdotas
-⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸
-
-#Anécdotas
-##⧸⧸⧸⧸⧸⧸⧸⧸~~~⧸⧸⧸⧸⧸⧸⧸⧸
-
-
-⧸⧸
-
-#·Anécdotas
-⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸#Anécdotas
-##⧸⧸⧸⧸⧸⧸ ¡Hemos roto un router!
+## ¡Hemos roto un router!
  En las configuraciones de prueba que hicimos en su momento en una de las veces que vamos reiniciar el balanceador HAPROXY, el router desconecta la Wifi
-* Creemos que era por que se habia calentado por estar colocado verticalmente cuando su forma correcta es horizontal
+* Creemos que era por que se había calentado por estar colocado verticalmente cuando su forma correcta es horizontal
 * El router al final sigue funcionando aunque nos diera ese pequeño susto
 
-⧸⧸⧸⧸⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸ Actualizaciones del sistema operativo en los días anteriores a la exposición
-* Un integrante del grupo había actualizado el kernel del sistema operativo en lo dos días anteriores, en OpenSuse, y la noche anterior le ⧸⧸habia⧸⧸había⧸⧸ pasado un kernel panic, pero seguía funcionando con docker, pues al día siguiente no se podían ejecutar algunos comandos, y tampoco iniciar los contenedores de docker que se ⧸⧸tenian,⧸⧸tenían,⧸⧸ ya que daba un error:
+* Actualizaciones del sistema operativo en los días anteriores a la exposición
+* Un integrante del grupo había actualizado el kernel del sistema operativo en lo dos días anteriores, en OpenSuse, y la noche anterior le había pasado un kernel panic, pero seguía funcionando con docker, pues al día siguiente no se podían ejecutar algunos comandos, y tampoco iniciar los contenedores de docker que se tenían ya que daba un error:
 ![img](./imagenes/1.jpg)
-esto ocurre en la hora de prácticas y decidimos que cuando ⧸⧸llegasemos⧸⧸llegásemos⧸⧸ a casa intentar solucionarlo de alguna ⧸⧸forma.
-⧸⧸forma.⧸⧸
+esto ocurre en la hora de prácticas y decidimos que cuando llegásemos a casa intentar solucionarlo de alguna forma.
 
-* Estando haciendo pruebas y más intentando tener otras opciones por si fallan los principales ordenadores, Un compañero que acaba de hacer un examen llegaba a probar las confguraciones por si fallase algo, prueba arrancar ⧸⧸docker en su maquína⧸⧸Docker en su máquina⧸⧸ con Antergos y se encuentra con errores tambien
+* Estando haciendo pruebas y más intentando tener otras opciones por si fallan los principales ordenadores, Un compañero que acaba de hacer un examen llegaba a probar las confguraciones por si fallase algo, prueba arrancar Docker en su máquina con Antergos y se encuentra con errores tambien
 ![img](./imagenes/2.jpg)
 ![img](./imagenes/2-1.jpg)
 ![img](./imagenes/3.jpg)
-⧸⧸	* Despues⧸⧸* Después⧸⧸ de un rato se consiguen solucionar con una ⧸⧸actulización⧸⧸actualización⧸⧸ y un reinicio del sistema
+* Después de un rato se consiguen solucionar con una actualización y un reinicio del sistema
 
-⧸⧸⧸⧸*⧸⧸
-*⧸⧸⧸⧸*⧸⧸ Mientras que mis compañeros preguntan en el grupo de Telegram de Docker ES por si alguno de sus miembros le ha ocurrido para poder dar solución a esos errores, empiezo a crear copias de seguridad por si, ocurriese algo, que no fue así
+* Mientras que mis compañeros preguntan en el grupo de Telegram de Docker ES por si alguno de sus miembros le ha ocurrido para poder dar solución a esos errores, empiezo a crear copias de seguridad por sí, ocurriese algo, que no fue así
 
 * Parece que con la gente del grupo de Telegram Docker ES consiguen ayudar a mi compañero y una propuesta es que copie las carpetas que contienen los contenedores de la carpeta /var/lib/docker
 ~~~
 du -sh /var/lib/docker
 ~~~
-* Desinstala docker completo aunque el paso más importante fue borrar el subvolumen del btrfs que parecia que es lo que estaba acaparando todo
+* Desinstala Docker completo aunque el paso más importante fue borrar el subvolumen del btrfs que parecia que es lo que estaba acaparando todo
 ~~~
 btrfs subvolume delete /var/lib/docker/btrfs/subvolumes/*
 ~~~
@@ -950,7 +933,7 @@ btrfs subvolume delete /var/lib/docker/btrfs/subvolumes/*
 
 ![img](./imagenes/6.jpg)
 
-* Al final consigue hacer hueco en el disco duro y arrancar los contenedores de docker.
+* Al final consigue hacer hueco en el disco duro y arrancar los contenedores de Docker.
 
 ___
 ***
