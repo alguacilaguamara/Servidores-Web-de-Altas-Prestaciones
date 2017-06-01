@@ -1,4 +1,4 @@
-#Recreación de las prácticas de SWAP en equipos reales.
+# Recreación de las prácticas de SWAP en equipos reales.
  
 Nuestro trabajo consiste en recrear un servidor distribuido, accesible desde Internet, con el objetivo de observar la importancia y el funcionamiento de las herramientas que hemos utilizado en el curso agregando la tecnología Docker.
  
