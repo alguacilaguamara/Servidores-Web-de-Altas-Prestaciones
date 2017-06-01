@@ -1,7 +1,13 @@
- 
 # Recreación de las prácticas de SWAP en equipos reales.
 
-## Introducción
+# Trabajo realizado por:
+## [Julián Cifuentes Jiménez](https://github.com/juliancifuentes95)
+## [José Álvaro Garrido López](https://github.com/alvarospunk)
+##  [Alejandro Francisco Alguacil Camarero](https://github.com/alguacilaguamara)
+##  [Alejandro Manuel do Nascimento Rodríguez](https://github.com/donas11)
+
+
+## ⧸⧸⧸⧸Introducción⧸⧸⧸⧸·Introducción⧸⧸⧸⧸Introducción⧸⧸⧸⧸
 
 Nuestro trabajo consiste en recrear las prácticas de la asignatura en un servidor casero, con el objetivo de observar a ras de circuito la importancia y el funcionamiento de las herramientas que hemos utilizado en el curso.
 
@@ -9,18 +15,19 @@ Para ello, hemos puesto a punto cuatro máquinas, las cuales tendrán como fin a
 
 Para ello vamos a utilizar Docker.
 
-# ¿Qué es Docker?
+# ⧸⧸⧸⧸¿Qué⧸⧸⧸⧸·¿Qué⧸⧸⧸⧸¿Qué⧸⧸·¿Qué⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸·¿Qué⧸⧸⧸⧸¿Qué⧸⧸⧸⧸·¿Qué⧸⧸⧸⧸¿Qué⧸⧸·¿Qué⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸ es Docker?
 
-Docker es una plataforma de software que le permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas llamadas
-contenedores que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que su código se ejecutará.
+Docker es una plataforma de software que le permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas ⧸⧸llamadas
+contenedores⧸⧸⧸⧸llamadas contenedores⧸⧸llamadas
+contenedores⧸⧸⧸⧸ que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que su código se ejecutará.
 
 
-# Ventajas de Docker
+⧸⧸⧸⧸###⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸###⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸ Ventajas de Docker
 
 Mejore la productividad de desarrollo Docker reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes. Estandarice las operaciones de aplicaciones Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos.
 
 
-# Empresas que lo Utilizan
+⧸⧸⧸⧸#⧸⧸⧸⧸##⧸⧸#⧸⧸⧸⧸⧸⧸⧸⧸#⧸⧸⧸⧸#⧸⧸⧸⧸##⧸⧸#⧸⧸⧸⧸⧸⧸⧸⧸ Empresas que lo Utilizan
 
 Organizaciones contribuidoras apuestan por Docker:
 * Red Hat
@@ -30,20 +37,12 @@ Organizaciones contribuidoras apuestan por Docker:
 * HPE - Composable Infrastructure Partner Program
 * ADP
 * Paypal
-* 
 
+⧸⧸⧸⧸##⧸⧸⧸⧸
+## ·Ideas⧸⧸##⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸
+## ·Ideas⧸⧸##⧸⧸⧸⧸⧸⧸ Configuraciones iniciales que desechamos
 
-
-
-
-
-
-
-
-
-## Configuraciones iniciales que desechamos
-
-## Ideas iniciales: conexiones de dispositivos 
+## ⧸⧸⧸⧸Ideas⧸⧸Ideas⧸⧸⧸⧸⧸⧸⧸⧸Ideas⧸⧸⧸⧸Ideas⧸⧸Ideas⧸⧸⧸⧸⧸⧸⧸⧸ iniciales: conexiones de dispositivos 
 ### Idea principal
 La idea principal para dar el servicio del servidor fue conectar todos los ordenadores y configurar alguno de los routers secundarios que tuviesemos en desuso y configurarlo para que emitiese ua red wifi conectando todos nuestros portatiles por cable, razones por las que se descarto:
 
@@ -90,7 +89,7 @@ La Idea final fue la de Tener un balanceador de servidores, Servidores Apache y 
 sudo docker run -d -p 80:80 -p 443:443 -p 10022:22 -i -t --name BalanceadorTrabajo nginx bash
 ~~~
 
-##accedemos a el
+⧸⧸##accedemos a ⧸⧸el⧸⧸##accedemos⧸⧸⧸⧸el⧸⧸⧸⧸##accedemos a el⧸⧸##accedemos⧸⧸⧸⧸⧸⧸
 
 ~~~
 sudo docker attach BalanceadorTrabajo
@@ -859,7 +858,9 @@ UUID=1ee1f774:c5d0c62d:dc01f0cf:98c776a8 /dat ext2 defaults 0 0
 
 
 ###La tabla usada
-CREATE TABLE `USER`(
+⧸⧸⧸⧸~~~⧸⧸⧸⧸CREATE⧸⧸⧸⧸~~~⧸⧸
+CREATE⧸⧸⧸⧸CREATE⧸⧸~~~
+⧸⧸CREATE⧸⧸⧸⧸⧸⧸CREATE⧸⧸⧸⧸⧸⧸⧸⧸ TABLE `USER`(
   USUARIO mediumint(9) NOT NULL,
   PASS binary(16) NOT NULL
 );
@@ -896,43 +897,45 @@ CREATE TABLE DATOS(
   Pantalla varchar(10) NOT NULL,
   tiempo_acceso varchar(6) NOT NULL,
 );
+⧸⧸⧸⧸⧸⧸~~~⧸⧸⧸⧸⧸⧸⧸⧸
 
 
+⧸⧸
 
-# ¡Hemos roto un Router!
+#·Anécdotas
+⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸#Anécdotas
+##⧸⧸ ¡Hemos roto un router!
  En las configuraciones de prueba que hicimos en su momento en una de las veces que vamos reiniciar el balanceador HAPROXY, el router desconecta la Wifi
 * Creemos que era por que se habia calentado por estar colocado verticalmente cuando su forma correcta es horizontal
 * El router al final sigue funcionando aunque nos diera ese pequeño susto
 
-# Actualizaciones del sistema operativo en los días anteriores a la exposición
-* Un integrante del grupo había actualizado el kernel del sistema operativo en lo dos días anteriores, en OpenSuse, y la noche anterior le habia pasado un kernel panic, pero seguía funcionando con docker, pues al día siguiente no se podían ejecutar algunos comandos, y tampoco iniciar los contenedores de docker que se tenian, ya que daba un error:
+## Actualizaciones del sistema operativo en los días anteriores a la exposición
+* Un integrante del grupo había actualizado el kernel del sistema operativo en lo dos días anteriores, en OpenSuse, y la noche anterior le había pasado un kernel panic, pero seguía funcionando con docker, pues al día siguiente no se podían ejecutar algunos comandos, y tampoco iniciar los contenedores de docker que se tenían, ya que daba un error:
 ![img](./imagenes/1.jpg)
-esto ocurre en la hora de prácticas y decidimos que cuando llegasemos a casa intentar solucionarlo de alguna forma.
+esto ocurre en la hora de prácticas y decidimos que cuando llegásemos a casa intentar solucionarlo de alguna forma.
 
-
-* Estando haciendo pruebas y más intentando tener otras opciones por si fallan los principales ordenadores, Un compañero que acaba de hacer un examen llegaba a probar las confguraciones por si fallase algo, prueba arrancar docker en su maquína con Antergos y se encuentra con errores tambien
+* Estando haciendo pruebas y más intentando tener otras opciones por si fallan los principales ordenadores, Un compañero que acaba de hacer un examen llegaba a probar las confguraciones por si fallase algo, prueba arrancar Docker en su máquina con Antergos y se encuentra con errores tambien
 ![img](./imagenes/2.jpg)
 ![img](./imagenes/2-1.jpg)
 ![img](./imagenes/3.jpg)
-	* Despues de un rato se consiguen solucionar con una actulización y un reinicio del sistema
-
+* Después de un rato se consiguen solucionar con una actualización y un reinicio del sistema
 
 * Mientras que mis compañeros preguntan en el grupo de Telegram de Docker ES por si alguno de sus miembros le ha ocurrido para poder dar solución a esos errores, empiezo a crear copias de seguridad por si, ocurriese algo, que no fue así
 
-* Parece que con la gente del grupo de Telegram Docker ES consiguén ayudar a mi compañero y una propuesta es que copie las carpetas que contienen los contenedores de la carpeta /var/lib/docker
+* Parece que con la gente del grupo de Telegram Docker ES consiguen ayudar a mi compañero y una propuesta es que copie las carpetas que contienen los contenedores de la carpeta /var/lib/docker
 ~~~
 du -sh /var/lib/docker
 ~~~
-* desinstala docker completo aunque el paso más importante fue borrar el subvolumen del btrfs que parecia que es lo que estaba acaparando todo
+* Desinstala docker completo aunque el paso más importante fue borrar el subvolumen del btrfs que parecia que es lo que estaba acaparando todo
 ~~~
 btrfs subvolume delete /var/lib/docker/btrfs/subvolumes/*
 ~~~
 
-* intenta copiar la carpeta de vuelta a docker de nuevo instalado y se queda sin espacio en disco 
+* Intenta copiar la carpeta de vuelta a Docker de nuevo instalado y se queda sin espacio en disco 
 
 ![img](./imagenes/5.jpg)
 
-* intentos de copiar archivos desde terminal
+* Intentos de copiar archivos desde terminal
 
 ![img](./imagenes/6.jpg)
 
