@@ -7,7 +7,7 @@
 ##  [Alejandro Manuel do Nascimento Rodríguez](https://github.com/donas11)
 
 
-## ⧸⧸⧸⧸Introducción
+## Introducción
 
 Nuestro trabajo consiste en recrear las prácticas de la asignatura en un servidor casero, con el objetivo de observar a ras de circuito la importancia y el funcionamiento de las herramientas que hemos utilizado en el curso.
 
@@ -15,19 +15,19 @@ Para ello, hemos puesto a punto cuatro máquinas, las cuales tendrán como fin a
 
 Para ello vamos a utilizar Docker.
 
-# ⧸⧸⧸⧸¿Qué es Docker?
+# ¿Qué es Docker?
 
 Docker es una plataforma de software que le permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas ⧸⧸llamadas
 contenedores⧸⧸⧸⧸llamadas contenedores⧸⧸llamadas
 contenedores⧸⧸⧸⧸ que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que su código se ejecutará.
 
 
-⧸⧸⧸⧸###⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸##⧸⧸⧸⧸###⧸⧸⧸⧸##⧸⧸⧸⧸#⧸⧸##⧸⧸⧸⧸⧸⧸⧸⧸⧸⧸ Ventajas de Docker
+## Ventajas de Docker
 
 Mejore la productividad de desarrollo Docker reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes. Estandarice las operaciones de aplicaciones Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos.
 
 
-⧸⧸⧸⧸#⧸⧸⧸⧸##⧸⧸#⧸⧸⧸⧸⧸⧸⧸⧸#⧸⧸⧸⧸#⧸⧸⧸⧸##⧸⧸#⧸⧸⧸⧸⧸⧸⧸⧸ Empresas que lo Utilizan
+##Empresas que lo Utilizan
 
 Organizaciones contribuidoras apuestan por Docker:
 * Red Hat
@@ -39,9 +39,10 @@ Organizaciones contribuidoras apuestan por Docker:
 * Paypal
 
 
-## ·Ideas⧸⧸##⧸⧸⧸⧸⧸⧸ Configuraciones iniciales que desechamos
+## ·Ideas
+## Configuraciones iniciales que desechamos
 
-## ⧸⧸⧸⧸Ideas⧸⧸Ideas⧸⧸⧸⧸⧸⧸⧸⧸Ideas⧸⧸⧸⧸Ideas⧸⧸Ideas⧸⧸⧸⧸⧸⧸⧸⧸ iniciales: conexiones de dispositivos 
+## Ideas iniciales: conexiones de dispositivos 
 ### Idea principal
 La idea principal para dar el servicio del servidor fue conectar todos los ordenadores y configurar alguno de los routers secundarios que tuviesemos en desuso y configurarlo para que emitiese ua red wifi conectando todos nuestros portatiles por cable, razones por las que se descarto:
 
@@ -80,15 +81,13 @@ Nuestra idea principal era la de tener dos balanceadores uno para servidores apa
 La Idea final fue la de Tener un balanceador de servidores, Servidores Apache y dos Bases de datos y uno con un dispositivo RAID
 ![img](./imagenes/dockersfinal.png)
 
-⧸⧸
-
 ##Creamos un nuevo contenedor
 
 ~~~
 sudo docker run -d -p 80:80 -p 443:443 -p 10022:22 -i -t --name BalanceadorTrabajo nginx bash
 ~~~
 
-⧸⧸##accedemos a ⧸⧸el⧸⧸##accedemos⧸⧸⧸⧸el⧸⧸⧸⧸##accedemos a el⧸⧸##accedemos⧸⧸⧸⧸⧸⧸
+##accedemos
 
 ~~~
 sudo docker attach BalanceadorTrabajo
