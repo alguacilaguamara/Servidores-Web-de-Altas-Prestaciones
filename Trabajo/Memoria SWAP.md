@@ -22,10 +22,10 @@ Docker es una plataforma de software que le permite crear, probar e implementar 
 
 ## Ventajas de Docker
 
-#### Mejora la productividad de desarrollo Docker 
-#### Reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes
-#### Estandariza las operaciones de aplicaciones 
-#### Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos
+* Mejora la productividad de desarrollo Docker 
+* Reduce el tiempo empleado en configurar nuevos entornos o en solucionar los problemas asociados con el uso de entornos diferentes
+* Estandariza las operaciones de aplicaciones 
+* Las aplicaciones con contenedores facilitan la implementación, la identificación de problemas y el retorno a una fase anterior para remediarlos
 
 
 ## Empresas que lo utilizan
@@ -82,19 +82,19 @@ Nuestra idea principal era la de tener dos balanceadores uno para servidores Apa
 La idea final fue la de tener un balanceador de servidores, servidores Apache, dos bases de datos y uno con un dispositivo RAID
 ![img](./imagenes/dockersfinal.png)
 
-##Creamos un nuevo contenedor
+## Creamos un nuevo contenedor
 
 ~~~
 sudo docker run -d -p 80:80 -p 443:443 -p 10022:22 -i -t --name BalanceadorTrabajo nginx bash
 ~~~
 
-##accedemos
+## Accedemos
 
 ~~~
 sudo docker attach BalanceadorTrabajo
 ~~~
 
-##modificamos archivo /etc/nginx/conf.d/default.conf
+## Modificamos archivo /etc/nginx/conf.d/default.conf
 
 ~~~
 upstream apaches {
@@ -130,7 +130,7 @@ server{
 }
 ~~~
 
-## reiniciamos servicio
+## Reiniciamos servicio
 
 ~~~
 service nginx restart
@@ -302,7 +302,7 @@ sudo docker run -d -p 1123:80 -p 1124:22 -p 1125:443 -p 1126:3306 -i -t --name A
 
 
 
-##Configuración SSH copia automática
+## Configuración SSH copia automática
 Creamos la clave
 ~~~
 keygen -t rsa
@@ -338,7 +338,7 @@ Los usuarios directos de la aplicación a desarrollar es el usuario registrado q
 
 <table border="0" cellspacing="0" cellpadding="0" class="ta1"><colgroup><col width="134"/><col width="194"/><col width="99"/><col width="99"/></colgroup><tr class="ro1"><td style="text-align:left;width:30.76mm; " class="ce3"><p>Nombre</p></td><td style="text-align:left;width:44.38mm; " class="ce3"><p>Descripción </p></td><td style="text-align:left;width:22.58mm; " class="ce3"><p>Tipo</p></td><td style="text-align:left;width:22.58mm; " class="ce3"><p>Responsabilidad</p></td></tr><tr class="ro1"><td style="text-align:left;width:30.76mm; " class="Default"><p>Usuario registrado </p></td><td style="text-align:left;width:44.38mm; " class="Default"><p>Representa un usuario registrado</p></td><td style="text-align:left;width:22.58mm; " class="Default"><p>Usuario del sistema</p></td><td style="text-align:left;width:22.58mm; " class="Default"><p>Iniciar sesión, cerrar sesión, guardar datos y visualizar porcentajes</p></td></tr></table>
 
-### Criterios de Exito
+### Criterios de éxito
 * Usuario registrado: Que el sistema le permita utilizar la navegación de forma sencilla y rápida. 
 
 
@@ -347,7 +347,7 @@ Los usuarios directos de la aplicación a desarrollar es el usuario registrado q
 	* RF-1.1. El sistema será capaz de responder al entrar
 * **RF-2. Guardar Datos** El sistema guardará los datos
 	* RF-2.1. El sistema será capaz de almacenar los datos
-* **RF-3. ver estadisticas** El sistema mostrará los datos
+* **RF-3. Ver estadísticas** El sistema mostrará los datos
 	* RF-3.1. El sistema será capaz de mostrar porcentajes de datos guardados
 * **RF-4. Cerrar sesión** El sistema eliminará los datos 
 	* RF-4.1. El sistema borrará todos los datos utilizados en la sesión 
@@ -364,15 +364,15 @@ carga posibles.
 
 
 ### Requisitos de Información
-* ** RI1 Iniciar Sesión**
-	* Imformación de usuario 
-	* **Contenido:** un usuario esta identificado por su usuario y la contraseña  
+* **RI1 Iniciar Sesión**
+	* Información de usuario 
+	* **Contenido:** un usuario esta identificado por su usuario y la contraseña
 	* **Requisitos asociados:** RF-1, RF-2,RF-3,RF-4
 
-* ** RI2 Datos**
+* **RI2 Datos**
 	* Información del servidor y del cliente
 	* **Contenido:** Información destinada para guardar direcciones IP, sistemas operativos, navegadores tamaños de pantalla y usuario
-	* **Requisitos asociados:**RF2,RF3
+	* **Requisitos asociados:** RF2,RF3
 
 
 
@@ -382,7 +382,7 @@ carga posibles.
 ![img](./imagenes/Casosdeuso.png)
 
 
-### Descripción Extendida de los casos de usos
+### Descripción extendida de los casos de usos
 #### Iniciar sesión
 
 <table class="tg">
@@ -420,7 +420,7 @@ carga posibles.
     <th class="tg-yw4l" colspan="7">Próposito</th>
   </tr>
   <tr>
-    <td class="tg-yw4l" colspan="7">Iniciar Sesion en la plataforma</td>
+    <td class="tg-yw4l" colspan="7">Iniciar Sesión en la plataforma</td>
   </tr>
 </table>
 
@@ -430,7 +430,7 @@ carga posibles.
     <th class="tg-yw4l" colspan="7">Resumen</th>
   </tr>
   <tr>
-    <td class="tg-yw4l" colspan="7">El usuario inicia sesion con su usuario y contraseña</td>
+    <td class="tg-yw4l" colspan="7">El usuario inicia sesión con su usuario y contraseña</td>
   </tr>
 </table>
 
@@ -440,7 +440,7 @@ carga posibles.
   </tr>
   <tr>
     <td class="tg-yw4l">1</td>
-    <td class="tg-yw4l" colspan="3">Usuario entra en la pagina web </td>
+    <td class="tg-yw4l" colspan="3">Usuario entra en la página web </td>
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
   </tr>
@@ -467,7 +467,7 @@ carga posibles.
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
     <td class="tg-yw4l">5</td>
-    <td class="tg-yw4l" colspan="3">El sistema comprueba que los datos estan bien</td>
+    <td class="tg-yw4l" colspan="3">El sistema comprueba que los datos están bien</td>
   <tr>
     <td class="tg-yw4l"></td>
     <td class="tg-yw4l" colspan="3"></td>
@@ -581,7 +581,8 @@ carga posibles.
     <td class="tg-yw4l" colspan="7">Si los datos no se pueden guardar vuelve a la página de nuevo</td>
   </tr>
 </table>
-#### ver estadisticas
+
+#### Ver estadísticas
 
 <table class="tg">
   <tr>
@@ -782,7 +783,7 @@ carga posibles.
 ![img](./imagenes/SecIS.png)
 #### Guardar datos
 ![img](./imagenes/SecGD.png)
-#### Ver estadisticas
+#### Ver estadísticas
 ![img](./imagenes/SecVE.png)
 #### Cerrar Sesión
 ![img](./imagenes/SecCS.png)
@@ -794,7 +795,7 @@ carga posibles.
 sudo docker import ApacheTrabajo.tar
 ~~~
 
-## lo buscamos entre las imagenes
+## Lo buscamos entre las imágenes
 ~~~
 sudo docker images
 ~~~
@@ -856,7 +857,7 @@ UUID=1ee1f774:c5d0c62d:dc01f0cf:98c776a8 /dat ext2 defaults 0 0
 ![img](./imagenes/RAID1-2.png)
 
 
-###La tabla usada
+### La tabla usada
   CREATE TABLE `USER`(
   USUARIO mediumint(9) NOT NULL,
   PASS binary(16) NOT NULL
