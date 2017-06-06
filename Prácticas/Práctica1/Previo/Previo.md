@@ -4,9 +4,9 @@
 sudo docker run -d -p 1111:80 -i -t --name server1 ubuntu bash
 ~~~
 
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/1.png)
+![img](./imágenes/1.png)
 
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/2.png)
+![img](./imágenes/2.png)
 
   * Actualizamos los repositorios
 ~~~
@@ -38,7 +38,7 @@ service apache2 restart
 
   * Interfaces de redes en el contenedor
 
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/3.png)
+![img](./imágenes/3.png)
 
   * En la máquina host(anfitriona) en un navegador web
 ~~~
@@ -48,15 +48,15 @@ http://172.17.0.1:1111/hola.html
 
   *  y comprobamos que funciona el servidor y hay conexión
 
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/4.png)
+![img](./imágenes/4.png)
 
 ##  Iniciamos un contenedor con una imagen de ubuntu con servidor ya instalado y asignando los puertos 80 y 22 al puerto 10306 y al 10022<sup>2</sup> del host 
  
  * El contenedor contiene ya LAMP instalado  
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/5.png)
+![img](./imágenes/5.png)
  
  * y comprobamos que funciona el servidor y hay conexión
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/Previo/6.png)
+![img](./imágenes/6.png)
 
 
 ***

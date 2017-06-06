@@ -19,4 +19,4 @@ root        53  0.0  0.0  11284   880 ?        S+   13:39   0:00 grep --color=au
 ~~~
 
 ## Captura de patalla
-![img](https://github.com/donas11/swap1617/blob/master/Prácticas/Práctica1/apachefuncionando.png)
+![img](./imágenes/apachefuncionando.png)
