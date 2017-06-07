@@ -1,0 +1,49 @@
+Ejercicio:
+Buscar información sobre características, disponibilidad para
+diversos SO, etc de herramientas para monitorizar las
+prestaciones de un servidor. 
+
+
+-top. muestra los procesos de Linux
+
+-htop. Una extensión del anterior que muestra de un modo más gráfico la carga del sistema
+
+-vmstat. Devuelve una estadística de la memoria
+
+-netstat. Imprime por pantalla la conexiones, la tabla de rutas, estadísticas de las interfaces, mascaras de conexión, usuarios en multicast.
+
+Según [1]:
+-"ps: muestra los procesos lanzados en el sistema por el usuario.
+
+-free: permite obtener información del estado de la memoria del sistema, tanto de la memoria física
+
+-df: permite monitorizar el sistema de archivos.
+
+-du: muestra la capacidad ocupada por un directorio concreto.
+
+-hdparm: permite conocer los parámeros más importantes de un disco y cambiar algunos de sus
+valores de configuración.
+
+-w: permite obtener información acerca de los usuarios que se encuentran conectados al sistema y sus
+procesos.
+Ofrece datos como la hora, el tiempo que lleva el sistema activo, cuantos usuarios se
+
+-mpstat: recoge estadísticas del rendimiento de cada procesador del sistema.
+
+-iostat: genera informes de la actividad de ls CPU y de la actividad de E/S en dispositivos.
+Se usa para monitorizar las entradas y salidas en los dispositivos del sistema, observando"
+
+-sar: permite detectar cuellos en el sistema guardando la información de la carga del sistema en ficheros
+
+-gprof: para sacar estadísiticas de los programas C. Hay que añadir líneas al código antes de compilarlo, por lo que no es lo más interesante.
+
+-valgrind:Según [2]"conjunto de herramientas para estudiar la gestión de memoria, fallos en las hebras y analizar rendimiento.", no requiere codificación extra en el código fuente, aunque no es la más rápida
+
+-[2]"oprofile: analizador que funciona con ayuda del núcleo." Igual que el anterior, pero es más rápida.
+
+-[2]"perf: analizador que funciona con ayuda del núcleo.". Este es el más rápido y tampoco requiere de recodificación.
+
+
+
+[1]https://principiatechnologica.files.wordpress.com/2013/04/monitorizacion-en-linux.pdf
+[2]https://pccito.ugr.es/as/teoria/practica-06/practica-06.pdf
