@@ -1,0 +1,14 @@
+Ejercicio T4.7:
+Buscar información sobre métodos y herramientas para
+implementar GSLB. 
+
+Los tipos de mecanismos para implementar Balanceo de Carga Global según [1] son:
+-Caché DNS en los navegadores. Cada navegador tiene almacenado la ip de la url que vayamos a visitar y con cierta frecuencia volveran actualizar esta información, visitando el servidor autorizado que pueda tener el DNS. EL problema puede ser si el servidor que tiene almacenado no es el más cercano, que iría más lento, o este se cae, que nos fallaría. 
+
+-Triangulación. El servidor DNS está comprobando los servidores que tiene levantados junto a las conexiones que tiene. Si uno se cae y el cliente intenta reconectar, el balanceador DNS lo reencamina a otro servidor lecantado
+
+-Backup redirection. Este método solo funciona con protocolos que tenga ambas redireccionamientos entre cliente-servidor(HTTP, HTTPS, algunos protocolos de streaming). Para ello, si el servidor sufre un fallo se reencamina a través de otra negociación con otro servidor. Pero esto tiene un fallo, si el servidor primero se pierde del todo no será capaz de informar para procesar el cambio.
+
+-BGP Host Route Injection. Este método fundamentalmente asigna a todos los servidores la misma IP detrás del balanceador. Este envia las peticiones a todos los servidores por igual y se consigue máxima redundancia por si se cae uno.
+
+[1]http://www.tenereillo.com/GSLBPageOfShame.htm
