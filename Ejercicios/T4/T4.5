@@ -1,0 +1,10 @@
+Ejercicio T4.5:
+Probar las diferentes maneras de redirección HTTP.
+¿Cuál es adecuada y cuál no lo es para hacer balanceo de
+carga global? ¿Por qué? 
+
+Para el balanceo de carga global la mejor respuesta la podrían dar Redirección con PHP (II) o incluso en algunos momentos la versión con JavaScript.
+
+En el caso de que el ancho de banda se busque que sea la mínima contra el balanceador, la mejor opción sería balanceo con PHP. El servidor recibe la petición del navegador, con toda la información que este provee, y elige que servidor está más cerca. Este balanceador le informa por su redes rápidas al servidor que va a servir el contenido y por último le responde en el menor tiempo posible. Otra característica sería quitarle un poco de carga al cliente y el retardo de comunicarse con un nuevo servidor.
+
+En algún caso puede ser interesante usar JavaScript, por ejemplo, al crear un servidor pequeño que aproximadamente pueda tardar igual en responder que si lo hace el trabajo el servidor, el balanceador trabaja menos y envía más datos con el cliente.
