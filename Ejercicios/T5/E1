@@ -1,0 +1,36 @@
+Ejercicio:
+Buscar información sobre cómo calcular el número de
+conexiones por segundo. 
+
+Una primera aproximación para obtenerlo según [1] podría ser:
+conexiones_por_segundo = peticiones / conexiones_completadas
+con peticiones =  bc -l
+
+Pero tenemos que estimar de forma más fina las capacidades y estimar cuantos usuarios son capaces de conectarse de forma concurrentes como nos explica [2].
+Para ello emplea varias fórmulas que se explican a continuación.
+
+"C = Sumatoria(L1, L2, …, Ln) / T
+
+Donde:
+
+C = Número de usuarios concurrentes.
+Ln = Tiempo de uso de la aplicación por el usuario n.
+T = Intervalo de tiempo durante el cual estamos realizando la medición."
+
+Otra manera de obtener los tiempos nos sigue contando [2] que podría ser:
+
+"C = n L / T
+
+Donde:
+
+C = Número de usuarios concurrentes.
+n = Número de usuarios totales.
+L = Tiempo promedio de uso de la aplicación para todos los usuarios.
+T = Intervalo de tiempo durante el cual estamos realizando la medición."
+
+Por último, podemos obtener las conexiones por segundo, el pico máximo, y obtener la confianza al 98.87% de esos datos como se muestra a continuación:
+
+"Cmax ≈ C + 3 √C, con una probabilidad de 99.87% "
+
+[1]https://www.cyberciti.biz/faq/nginx-see-active-connections-connections-per-seconds/ 
+[2]https://everac99.wordpress.com/2009/06/04/estimando-usuarios-concurrentes/
