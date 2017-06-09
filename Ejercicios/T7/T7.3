@@ -1,0 +1,56 @@
+Ejercicio T7.4:
+Buscar información sobre los sistemas de ficheros en red más
+utilizados en la actualidad y comparar sus características. Hacer
+una lista de ventajas e inconvenientes de todos ellos, así como
+grandes sistemas en los que se utilicen.
+Configurar en una máquina virtual un servidor NFS. Montar desde
+otra máquina virtual en la misma subred la carpeta exportada y
+comprobar que ambas pueden acceder a la misma para lectura y
+escritura.
+
+Los sistemas de ficheros de red más comunes son los que podemos ver a continuación [3]:
+
+
+    - NFS. Según [4]:"El Network File System (Sistema de archivos de red), o NFS, es un protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos distribuido en un entorno de red de computadoras de área local. "
+        Ventajas[4]:
+            "- El sistema NFS está dividido al menos en dos partes principales: un servidor y uno o más clientes. Los clientes acceden de forma remota a los datos que se encuentran almacenados en el servidor.
+
+            - Las estaciones de trabajo locales utilizan menos espacio de disco debido a que los datos se encuentran centralizados en un único lugar pero pueden ser accedidos y modificados por varios usuarios, de tal forma que no es necesario replicar la información.
+
+            - Los usuarios no necesitan disponer de un directorio “home” en cada una de las máquinas de la organización. Los directorios “home” pueden crearse en el servidor de NFS para posteriormente poder acceder a ellos desde cualquier máquina a través de la infraestructura de red.
+
+            - También se pueden compartir a través de la red dispositivos de almacenamiento como disqueteras, CD-ROM y unidades ZIP. Esto puede reducir la inversión en dichos dispositivos y mejorar el aprovechamiento del hardware existente en la organización.
+            
+            - Todas las operaciones sobre ficheros son síncronas. Esto significa que la operación sólo retorna cuando el servidor ha completado todo el trabajo asociado para esa operación. En caso de una solicitud de escritura, el servidor escribirá físicamente los datos en el disco, y si es necesario, actualizará la estructura de directorios, antes de devolver una respuesta al cliente. Esto garantiza la integridad de los ficheros."
+            
+    - SMB. Según [5]:"Server Message Block (SMB)1 es un protocolo de red que permite compartir archivos, impresoras, etcétera, entre nodos de una red de computadoras que usan el sistema operativo Microsoft Windows.
+    Este protocolo pertenece a la capa de aplicación en el modelo OSI."
+    Las ventajas de este sistema de ficheros son las siguientes:
+            - Soporte para enlaces simbólicos([6]"indica un acceso a un directorio o fichero que se encuentra en un lugar distinto") y enlaces duros ([7]"es una referencia o puntero a un archivo (al dato físico) en un sistema de archivos."")
+            - "Los servicios de impresión y el SMB para compartir archivos se transformaron en el pilar de las redes de Microsoft."
+            - "Utiliza denominación Domain Name System (DNS). Esto permite a los protocolos TCP/IP admitir directamente el compartir recursos SMB."
+    
+    - AFS. Según [8]:"Andrew File System (Sistema de archivos Andrew), o AFS1 es un sistema de archivos distribuido a través de la red [...].Es utilizado fundamentalmente en entornos de computación distribuida."
+    Las ventajas pueden ser las siguientes:
+            - Soporta más de 25.000 clientes en la red desplegada.
+            - "AFS usa Kerberos como mecanismo de autenticación, e implementa listas de control de acceso "
+            - "Cada cliente mantiene una caché en el sistema de archivos local para aumentar la velocidad de acceso a los archivos. Esto también permite el acceso limitado al sistema de archivos en el caso de caída del servidor o un fallo de red."
+            - " La consistencia de la caché se mantiene a través del mecanismo denominado "callback""(Se informa del cambio si otro cliente cambia algo del fichero modificado)
+            - El volumen de cada usuario, el espacio total en el servidor, es un árbol de archivos y subdirectorios.
+            - "Un volumen puede tener una cuota asignada para limitar la cantidad de espacio consumido"
+            - "Los volúmenes pueden ser replicados para copias de respaldo de sólo lectura"
+            - Influyó cuando se desarrolló NFS
+    
+    - CIFS. Renombramiento que hizo Microsoft de Samba. Su estructura a bajo nivel la podemos encontrar
+    en [9].
+
+
+[1]https://ostechnix.wordpress.com/2013/12/15/setup-nfs-server-in-centos-rhel-scientific-linux-6-3-step-by-step/
+[2]https://www.howtoforge.com/nfs-server-on-ubuntu-14.10  
+[3]https://es.wikibooks.org/wiki/Sistemas_de_ficheros/Tipos_de_sistemas_de_ficheros
+[4]https://es.wikipedia.org/wiki/Network_File_System
+[5]https://es.wikipedia.org/wiki/Server_Message_Block
+[6]https://es.wikipedia.org/wiki/Enlace_simb%C3%B3lico
+[7]https://es.wikipedia.org/wiki/Enlace_duro
+[8]https://es.wikipedia.org/wiki/Andrew_File_System
+[9]https://technet.microsoft.com/en-us/library/cc939973.aspx
