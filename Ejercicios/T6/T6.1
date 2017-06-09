@@ -1,0 +1,39 @@
+Ejercicio T6.1:
+a) Aplicar con iptables una política de denegar todo el tráfico
+en una de las máquinas de prácticas.
+Comprobar el funcionamiento.
+b) Aplicar con iptables una política de permitir todo el tráfico
+en una de las máquinas de prácticas.
+Comprobar el funcionamiento. 
+
+a) 
+#!/bin/sh
+
+#habilitamos en el kernel el redireccionamiento
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# (1) Eliminar todas las reglas (configuraci  n limpia)
+iptables -F
+iptables -t nat -F
+iptables -X
+iptables -t nat -X
+
+# (2) Pol  tica por defecto: denegar todo el tr  fico
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+
+b) 
+#!/bin/sh
+
+#habilitamos en el kernel el redireccionamiento
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# (1) Eliminar todas las reglas (configuraci  n limpia)
+iptables -F
+iptables -t nat -F
+iptables -X
+iptables -t nat -X
+
+# (2) Pol  tica por defecto: denegar todo el tráfico
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT

@@ -1,0 +1,25 @@
+Ejercicio T7.1:
+a) ¿Qué tamaño de unidad de unidad RAID se obtendrá al
+configurar un RAID 0 a partir de dos discos de 100 GB y
+100 GB?
+b) ¿Qué tamaño de unidad de unidad RAID se obtendrá al
+configurar un RAID 0 a partir de tres discos de 200 GB
+cada uno? 
+
+a) Si dentro de cada disco tenemos particiones, vamos a llamarlas A B C D E F y están repartidas entre los dos discos. Si las particiones están repartidas de forma equitativa tendríamos:
+
+Disco 1: 
+        Tamaño_partición = 100/3 = 33.39 GB 
+Dicho de otra manera, como reparte los datos entre todas estas particiones de cada discos conseguimos
+concurrencia paralela, pero como no hay datos replicados(tenemos todo el espacio para almacenar pero no 
+tenemos nada replicado, lo que disminuye la seguridad ante fallos)
+
+En total tendremos 200 GB de espacio para distribuir todos los datos.
+
+
+b) Igual que en el apartado anterior pero:
+
+Disco 2:
+        Tamaño_partición = 200/3 = 66.67 GB
+        
+Tendremos en total 400GB para distribuir los datos en el RAID.

@@ -1,0 +1,26 @@
+#Ejercicio T6.3:
+Buscar información acerca de los tipos de ataques más
+comunes en servidores web (p.ej. secuestros de sesión).
+Detallar en qué consisten, y cómo se pueden evitar. 
+
+Para poder tener un servidor web hay que conocer los riesgos que conlleva.
+Estos riesgos, entre otros, son ataques que no pueden hacer.
+Veamos unos cuantos ataques, como nos cuenta [1].
+- Ataque Por Injection, o también llamado sqli (Structured Query Language Injection). Este ataque se 
+realiza como nos explica [1]:"es una técnica para modificar una cadena de consulta de base de datos mediante la inyección de código en la consulta. El SQLI[...](utilizado para obtener acceso a las tablas de bases de datos,)[...] explota una posible vulnerabilidad donde las consultas se pueden ejecutar con los datos validados."
+
+- DDoS. Según [1]:"La Denegación de Servicio (DoS) ó Denegación de Servicio Distribuida (DDoS) son las formas más comunes para congelar el funcionamiento de un sitio web.". Fundamentalmente se intenta acceder a un servidor desde muchos puntos para dejar sin capacidades al servidor y este no es capaz de responder antes 
+nuevas peticiones. Además, hay varios tipos de ataques DDOS:"Los ataques DDoS vienen en 3 variedades principales:
+
+    -Los ataques de volumen, donde el ataque intenta desbordar el ancho de banda en un sitio específico.
+    -Los ataques de protocolo, donde los paquetes intentan consumir servicios o recursos de la red.
+    -Ataques a aplicaciones, donde las peticiones se hacen con la intención de “explotar” el servidor web,      mediante la capa de aplicación.
+"
+
+- Fuerza Bruta. Intentar romper la contraseña comprobando todas las posibles combinaciones. Para 
+conseguir explotar esta vulnerabilidad debe de tener contraseas débiles
+
+- Cross Site Scripting(XSS). [1]"para inyectar scripts maliciosos en lo que serían sitios web inofensivos.
+[...] El XSS generalmente se utiliza para obtener acceso de un usuario de la cuenta." 
+
+[1]http://blog.hostdime.com.co/tipos-de-ataques-mas-comunes-a-sitios-web-y-servidores/

@@ -1,0 +1,8 @@
+Ejercicio:
+Revisar los análisis de tráfico que se ofrecen en [1].
+Instalar wireshark y observar cómo fluye el tráfico de red en
+uno de los servidores web mientras se le hacen peticiones
+HTTP 
+
+
+[1]http://bit.ly/1g0dkKj
