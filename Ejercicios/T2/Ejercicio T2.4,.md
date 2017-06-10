@@ -1,6 +1,6 @@
-a)  Buscar ejemplos de balanceadores software y hardware (productos comerciales).
-b)  Buscar productos comerciales para servidores de aplicaciones.
-c)  Buscar productos comerciales para servidores de almacenamiento. 
+## a)  Buscar ejemplos de balanceadores software y hardware (productos comerciales).
+## b)  Buscar productos comerciales para servidores de aplicaciones.
+## c)  Buscar productos comerciales para servidores de almacenamiento. 
 
 a)  Balanceador Software:
     [1]Este balanceador sirve para los productos de Microsoft, destaca por(según Microsoft):

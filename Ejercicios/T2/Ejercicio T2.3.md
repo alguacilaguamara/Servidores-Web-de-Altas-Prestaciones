@@ -1,5 +1,4 @@
-¿Cómo analizar el nivel de carga de cada uno de los
-subsistemas en el servidor? 
+## ¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? 
 
 Para una vista rápida del rendimiento de una página web, y por tanto, muy seguramente el rendimiento del servidor que
 hay detrás de esa web, google desarroló un completento llamado PageSpeed insights[1], que proporciona de forma rápida

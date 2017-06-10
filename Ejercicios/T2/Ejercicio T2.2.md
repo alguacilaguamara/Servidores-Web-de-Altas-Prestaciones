@@ -1,6 +1,4 @@
-Buscar frameworks y librerías para diferentes lenguajes que
-permitan hacer aplicaciones altamente disponibles con
-relativa facilidad. 
+## Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad. 
 
 Si nos encontramos en el mundo de Microsoft, el famoso Microsoft .NET Framework a partir de la versión 3.0 nos sirve[1].
 Este framework no es exclusivo para la web, sino que es el framework integrado en cualquier Windows, por lo que, si alguien 
