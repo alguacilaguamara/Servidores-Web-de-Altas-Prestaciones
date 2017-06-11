@@ -42,19 +42,17 @@
   [3]Sirve como servidor HTTP de alto rendimiento y proxy de HTTP, servidor proxy de correo IMAP/POP3
   Presume de alto rendimiento así como alta estabilidad, altamente completo y bajo consumo de 
   recursos.Entre otros ofrece:
+  - Balanceador de carga
   
-    - Balanceador de carga
-  
-    - Aceleración web y excelente rendimiento para consultas desde el móvil(reduciendo la carga
-      de contenido)
+  - Aceleración web y excelente rendimiento para consultas desde el móvil(reduciendo la carga de contenido)
     
-    - Seguridad para las aplicaciones que estén en el servidor
+  - Seguridad para las aplicaciones que estén en el servidor
     
-    - Streaming de video y audio
+  - Streaming de video y audio
     
-    - Una API para mejorar la seguridad de la entrada al servidor
+  - Una API para mejorar la seguridad de la entrada al servidor
     
-    - Aprovechamiento máximo del hardware
+  - Aprovechamiento máximo del hardware
     
     
 -thttpd
@@ -80,20 +78,17 @@
   escrito completamente en C). Puede usarse en sistemas embebidos y se le pueden agregar
   complementos. 
   Sus principales usos podrían ser[5]:
+  - Balanceador de carga
+    
+  - Configuraciones de servidores Virtuales
+    
+  - Uso seguro del servidor a través de conexiones encriptadas con FastCGI, SCGI, PHP, CGI, SSI,TLS y SSL.
   
-    - Balanceador de carga
-    
-    - Configuraciones de servidores Virtuales
-    
-    - Uso seguro del servidor a través de conexiones encriptadas con FastCGI, SCGI, PHP, CGI, SSI,
-    
-    TLS y SSL.
-    
-    - Proxy de HTTP
-    
-    - Alta eficiencia
-    
-    - Gestor de administración con una interfaz llamada "cherokee-admin"
+  - Proxy de HTTP
+  
+  - Alta eficiencia
+  
+  - Gestor de administración con una interfaz llamada "cherokee-admin"
     
 
 -node.js
