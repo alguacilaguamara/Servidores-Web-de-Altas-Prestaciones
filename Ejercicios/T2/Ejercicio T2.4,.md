@@ -34,6 +34,7 @@ a)  Balanceador Software:
       
       
 b)  Buscar productos comerciales para servidores de aplicaciones.
+
     [3]Microsoft .NET Framework 3.0. Este framework sirve en un servidor para ejecutar aplicaciones creadas para 
     usar COM+, Message Queue Server, Servicios web y Transacciones distribuidas.
     
