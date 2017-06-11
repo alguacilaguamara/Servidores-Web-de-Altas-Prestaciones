@@ -1,6 +1,6 @@
 ## Buscar información sobre las tareas o servicios web para los que se usan más los programas que comentamos al principio de la sesión: 
 
--apache.
+### - apache.
 
   Prácticamente el servidor HTTP más funcional y el que más edad tiene. Sus funciones principales pueden ser:[1]
    
@@ -37,7 +37,7 @@
    - Filtrado a nivel de aplicación, para mejorar la seguridad.
    
    
--nginx
+### - nginx
 
   [3]Sirve como servidor HTTP de alto rendimiento y proxy de HTTP, servidor proxy de correo IMAP/POP3
   Presume de alto rendimiento así como alta estabilidad, altamente completo y bajo consumo de 
@@ -55,7 +55,7 @@
   - Aprovechamiento máximo del hardware
     
     
--thttpd
+### - thttpd
   
    [4]tiny/turbo/throttling, pequeño, acelerado y regulador servidor de HTTP.
    
@@ -72,7 +72,7 @@
    - Soporta IPv6
   
   
- -Cherokee
+### - Cherokee
   
   [5]Servidor web multiplataforma. Su objetivo es ser funcional a la par que rápido(está
   escrito completamente en C). Puede usarse en sistemas embebidos y se le pueden agregar
@@ -91,7 +91,7 @@
   - Gestor de administración con una interfaz llamada "cherokee-admin"
     
 
--node.js
+### - node.js
 
   [7]Entorno en tiempo de ejecución multiplataforma, usable tanto en la capa de servidor
   y otros usos. La gran baza de esta plataforma es su orientación a eventos, realizado
