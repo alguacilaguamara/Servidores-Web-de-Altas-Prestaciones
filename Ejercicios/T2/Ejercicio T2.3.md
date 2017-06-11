@@ -16,7 +16,11 @@ con ps, top, htop, vmstat.
 
 Si nos encontramos con un servidor con Windows podemos usar el Monitor de sistema o generar un informe de la carga que más nos
 interese del sistema en Panel de control->Herramientas administrativas->Análisis de rendimiento.
+
 [1] http://www.diginota.com/analizar-y-mejorar-la-velocidad-de-un-blog-con-wordpress/?share=facebook
+
 [2] http://www.spec.org/cpu/
+
 [3] Apuntes de la asignatura Ingeniería de Servidores(ISE)
+
 [4] https://support.microsoft.com/es-us/help/815159/how-to-analyze-asp.net-web-application-performance-by-using-the-performance-administration-tool
